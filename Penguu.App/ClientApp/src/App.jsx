@@ -5,19 +5,18 @@ import AuthorizeRoute from './components/api-authorization/AuthorizeRoute';
 import { Layout } from './components/Layout';
 import './custom.css';
 
-export default class App extends Component {
-  static displayName = App.name;
+const App = () => {
 
-  render() {
     return (
-      <Layout>
+        <Layout>
         <Routes>
-          {AppRoutes.map((route, index) => {
+        {AppRoutes.map((route, index) => {
             const { element, requireAuth, ...rest } = route;
             return <Route key={index} {...rest} element={requireAuth ? <AuthorizeRoute {...rest} element={element} /> : element} />;
-          })}
+        })}
         </Routes>
-      </Layout>
+        </Layout>
     );
-  }
-}
+};
+
+export default App;
