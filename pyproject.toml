@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "htb-peng-front"
+version = "0.1.0"
+description = ""
+authors = ["Ed <ed@jehamilton.co.uk>"]
+readme = "README.md"
+packages = [{include = "htb_peng_front"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Django = "^4.1.7"
+mssql-django = "^1.2"
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^2.16.3"
+pylint-django = "^2.5.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
