@@ -22,8 +22,10 @@ code {
 
 .btn-primary {
   color: #fff;
-  background-color: #1b6ec2;
+  background-color: #481bc2;
   border-color: #1861ac;
+  width: 200px;
+  height: 40px;
 }
 
 header.masthead {
@@ -31,7 +33,7 @@ header.masthead {
   overflow: hidden;
   padding-top: calc(7rem + 72px);
   padding-bottom: 7rem;
-  background: linear-gradient(0deg, #ff6a00 0%, #ee0979 100%);
+  background: linear-gradient(0deg, #01c295 0%, #807bee 100%);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: scroll;
