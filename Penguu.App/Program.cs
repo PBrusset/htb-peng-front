@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using Penguu.App.Data;
 using Penguu.App.Models;
@@ -11,14 +10,19 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => 
+    options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
-builder.Services.AddIdentityServer()
-    .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
-
-builder.Services.AddAuthentication()
-    .AddIdentityServerJwt();
+builder.Services.ConfigureApplicationCookie(options => 
+    {
+        options.Cookie.HttpOnly = true;
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+        options.LoginPath = "/Identity/Accout/Login";
+        options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+        options.SlidingExpiration = true;
+    });
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
@@ -41,8 +45,13 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthentication();
-app.UseIdentityServer();
 app.UseAuthorization();
+
+var cookiePolicyOptions = new CookiePolicyOptions
+{
+    MinimumSameSitePolicy = SameSiteMode.Strict,
+};
+app.UseCookiePolicy(cookiePolicyOptions);
 
 app.MapControllerRoute(
     name: "default",
