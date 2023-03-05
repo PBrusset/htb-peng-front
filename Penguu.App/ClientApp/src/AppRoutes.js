@@ -1,5 +1,6 @@
 import { Counter } from "./components/Counter";
 import { FetchData } from "./components/FetchData";
+import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
 
 const AppRoutes = [
@@ -16,6 +17,11 @@ const AppRoutes = [
     requireAuth: true,
     element: <FetchData />
   },
+  {
+    path: '/dashboard',
+    element: <Dashboard />
+  },
+  
 ];
 
 export default AppRoutes;
