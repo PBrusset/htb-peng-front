@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Penguu.App.Data;
 
@@ -11,9 +12,10 @@ using Penguu.App.Data;
 namespace Penguu.App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230305053136_sensor-schema")]
+    partial class sensorschema
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -240,9 +242,6 @@ namespace Penguu.App.Migrations
 
                     b.Property<int>("AlertType")
                         .HasColumnType("int");
-
-                    b.Property<string>("Payload")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SensorUserId")
                         .HasColumnType("int");

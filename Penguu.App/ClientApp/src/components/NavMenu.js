@@ -43,6 +43,7 @@ export class NavMenu extends Component {
               </NavItem>
                 {/*<LoginMenu>
               </LoginMenu>*/}
+            
             </ul>
           </Collapse>
         </Navbar>

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Penguu.App.Data;
+using Penguu.App.Data.Interface;
 using Penguu.App.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,8 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => 
     options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddScoped<ISensorManager, SensorManager>();
 
 builder.Services.ConfigureApplicationCookie(options => 
     {

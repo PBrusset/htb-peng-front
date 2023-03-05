@@ -1,32 +1,25 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Penguu.App.Data;
+using Penguu.App.Data.Interface;
 
 namespace Penguu.App.Controllers;
 
 //[Authorize]
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class DeviceDataController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+    private readonly ISensorManager _sensorManager;
 
-
-    public DeviceDataController()
+    public DeviceDataController(ISensorManager sensorManager)
     {
-    }
-
-    [HttpGet]
-    public async Task<ActionResult> Get()
-    {
-       return Ok(); 
+        _sensorManager = sensorManager;
     }
 
     [HttpPost]
-    public async Task<ActionResult> Post()
+    public async Task<ActionResult> Post(SensorReportDTO sensorReport)
     {
+        await _sensorManager.ReportSensorData(sensorReport);
         return Ok();
     }
 }
