@@ -51,6 +51,7 @@ const Dashboard = () => {
     useEffect(() => {
         pollAlerts();
         getSensorUsers();
+        // eslint-disable-next-line
     }, []);
     
     return (
