@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { fetchAlerts, fetchSensorUsers, deactivateAlert } from '../api/api';
 import AlertCard from './AlertCard';
 
-const POLL_RATE = 10000;
+const POLL_RATE = 5000;
 
 const Dashboard = () => {
 
@@ -57,6 +57,7 @@ const Dashboard = () => {
     return (
         <>
             <h1>Dashboard</h1>
+            { alertCards.length === 0 && <p>Your updates will appear here...</p> }
             { alertCards }
         </>
     );
