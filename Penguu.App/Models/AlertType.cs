@@ -2,8 +2,10 @@ namespace Penguu.App.Models
 {
     public enum AlertType
     {
+        Access,
         WaterLevel,
-        CarerEntry,
-        Motion
+        Distress,
+        CorrectPin,
+        IncorrectPin
     }
 }
