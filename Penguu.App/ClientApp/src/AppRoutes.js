@@ -9,15 +9,6 @@ const AppRoutes = [
     element: <Home />
   },
   {
-    path: '/counter',
-    element: <Counter />
-  },
-  {
-    path: '/fetch-data',
-    requireAuth: true,
-    element: <FetchData />
-  },
-  {
     path: '/dashboard',
     requireAuth: true,
     element: <Dashboard />
