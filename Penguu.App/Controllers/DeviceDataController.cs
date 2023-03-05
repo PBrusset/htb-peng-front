@@ -6,7 +6,7 @@ namespace Penguu.App.Controllers;
 
 //[Authorize]
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class DeviceDataController : ControllerBase
 {
     private readonly ISensorManager _sensorManager;

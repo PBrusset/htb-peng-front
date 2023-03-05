@@ -6,6 +6,6 @@ namespace Penguu.App.Data
     {
         public int SensorUserId { get; set; }
         public AlertType AlertType { get; set; }
-        public int? Value { get; set; }
+        public string? Payload { get; set; }
     }
 }

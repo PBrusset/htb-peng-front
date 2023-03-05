@@ -11,7 +11,7 @@ public class SensorUserCreationRequest {
 
 //[Authorize]
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class SensorUserController : ControllerBase
 {
     private readonly ISensorManager _sensorManager;

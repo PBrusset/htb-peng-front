@@ -16,5 +16,7 @@ namespace Penguu.App.Models
         public DateTime AlertTime { get; set; }
 
         public bool Active { get; set; }
+
+        public string? Payload { get; set; }
     }
 }

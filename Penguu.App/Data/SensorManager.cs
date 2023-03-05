@@ -37,6 +37,7 @@ namespace Penguu.App.Data
                 AlertType = sensorReport.AlertType,
                 AlertTime = DateTime.UtcNow,
                 Active = true,
+                Payload = sensorReport.Payload,
             };
             await _context.SensorAlerts.AddAsync(newAlert);
             await _context.SaveChangesAsync();
